@@ -1,5 +1,7 @@
-import { Button } from 'react-native';
+import { Button, ButtonProps, TextInputProps } from 'react-native';
 
-export function ButtonCustomizado() {
-  return <button />;
+export function ButtonCustomizado({...rest}: ButtonProps) {
+  return <Button 
+      {...rest}
+  />;
 }

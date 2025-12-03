@@ -8,6 +8,10 @@ export function LoginScreen() {
     const[login, setLogin] = useState("");
     const[senha, setSenha] = useState("");
 
+    function logar() {
+        console.log("login", login, "senha", senha)
+    }
+
     console.log("login" , login);
     console.log("senha" , senha);
     return (
@@ -24,7 +28,11 @@ export function LoginScreen() {
 
                 <ButtonCustomizado title="entrar" onPress={()=> 
                     console.log("login", login, "senha", senha)}/>   
-                <Text className="text-blue-950">Esqueceu a Senha?</Text> 
+                <View className="flex-row items-center space-x-2 mt-2">
+                    <Text className="text-blue-950">Esqueceu a Senha?     </Text>
+                    <Text className="text-blue-950">|</Text>
+                    <Text className="text-blue-950">     Cadastre-se</Text>
+                </View>
             </View>
         </View>
     )

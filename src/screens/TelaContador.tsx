@@ -1,39 +1,25 @@
-import { ButtonCustomizado } from '@/components/botaoCustomizado';
-import { InputCustomizado } from '@/components/inputCustomizado';
-import { useState, useEffect} from 'react';
-import { View, Text } from 'react-native';
+import { ButtonCustomizado } from "@/components/botaoCustomizado";
+import { useState } from "react";
+import { Text, View } from "react-native";
 
-export function TelaContador() {
-    const [item, setItem] = useState("");
-    const [lista, setLista] = useState<string[]>([]);
+export function TelaContador () {
+    const [item, setItem]=useState(0);
 
-    function adicionaItem() {
-        setLista([...lista, item]);
-        setItem("");
+    function adicionar() {
+        setItem((prevItem) => prevItem + 1)
     }
-    function limpaLista () {
-        setLista([]);
+
+    function diminuir() {
+        setItem((prevItem) => prevItem - 1)
     }
-    return(
-        <View className="flex-1 items-center gap-4 p-3">
-            <Text className="text-4xl m-3">
-                Tela de Contador
-            </Text> 
-            <InputCustomizado placeholder="item"
-            value={item}
-            onChangeText={(text) => setItem(text)}/>
-            <ButtonCustomizado title="adicionar" onPress={adicionaItem}/>
-            <ButtonCustomizado title="Limpar Lista" onPress={limpaLista}/>
-        <View>
-            {lista.map((item, index) =>(
-                <Text key={index}
-                className="text-xl">
-                    {item}
-                </Text>
-            ))}
+    return (    
+        <View className="flex-1 items-center justify-center">
+            <View className="w-full items-center justify-center gap-5 p-5">
+                <Text className="text-black 2xl"> input </Text>
+                <ButtonCustomizado title="+" onPress={adicionar} />
+                <ButtonCustomizado title="-" onPress={diminuir} />
+                <Text className="text-black 2xl"> {item} </Text>
+            </View>
         </View>
-
-    </View>
     )
 }
-    

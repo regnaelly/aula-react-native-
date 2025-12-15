@@ -5,6 +5,8 @@ import { LoginScreen } from '@/screens/logins';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Soma } from '@/screens/soma';
 import { ListaScreen } from '@/screens/lista';
+import { TelaSoma } from '@/screens/TelaSoma';
+import { TelaContador } from '@/screens/TelaContador';
 
 export default function App() {
   return (
@@ -12,7 +14,9 @@ export default function App() {
       <SafeAreaView className="flex-1">
         {/* <LoginScreen/> */}
         {/* <Soma /> */}
-        <ListaScreen/>
+        {/* <ListaScreen/> */}
+        {/* <TelaSoma /> */}
+        <TelaContador />
       </SafeAreaView>
 
       <StatusBar style="auto" />

@@ -3,13 +3,17 @@ import { ButtonCustomizado } from "@/components/botaoCustomizado";
 
 import { Text, View } from "react-native";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { ProfileScreenNavigationProp } from "./interface/rootPage";
 
 export function LoginScreen() {
     const[login, setLogin] = useState("");
     const[senha, setSenha] = useState("");
+    const navigation = useNavigation<ProfileScreenNavigationProp>()
 
     function logar() {
-        console.log("login", login, "senha", senha)
+        console.log("login", login, "senha", senha);
+        navigation.navigate("soma")
     }
 
     console.log("login" , login);
@@ -26,8 +30,7 @@ export function LoginScreen() {
                 onChangeText={(text) => {setSenha(text)}} secureTextEntry={true}/>   
 
 
-                <ButtonCustomizado title="entrar" onPress={()=> 
-                    console.log("login", login, "senha", senha)}/>   
+                <ButtonCustomizado title="entrar" onPress={logar}/>   
                 <View className="flex-row items-center space-x-2 mt-2">
                     <Text className="text-blue-950">Esqueceu a Senha?     </Text>
                     <Text className="text-blue-950">|</Text>
